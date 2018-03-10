@@ -10,8 +10,8 @@ function Door0(number, onUnlock) {
 
     var buttons = [
         this.popup.querySelector('.door-riddle__button_0'),
-        //this.popup.querySelector('.door-riddle__button_1'),
-        this.popup.querySelector('.door-riddle__button_2')
+        this.popup.querySelector('.door-riddle__button_1'),
+        //this.popup.querySelector('.door-riddle__button_2')
     ];
 
     buttons.forEach(function(b) {
@@ -65,8 +65,9 @@ function Door1(number, onUnlock) {
     // ==== Напишите свой код для открытия второй двери здесь ====
     var buttons = [
         this.popup.querySelector('.door-riddle__button_0'),
-        //this.popup.querySelector('.door-riddle__button_1'),
-        this.popup.querySelector('.door-riddle__button_2')
+        this.popup.querySelector('.door-riddle__button_1'),
+        //this.popup.querySelector('.door-riddle__button_2'),
+        //this.popup.querySelector('.door-riddle__button_3'),
     ];
 
     buttons.forEach(function(b) {
@@ -119,7 +120,7 @@ function Door2(number, onUnlock) {
     var buttons = [
         this.popup.querySelector('.door-riddle__button_0'),
         //this.popup.querySelector('.door-riddle__button_1'),
-        this.popup.querySelector('.door-riddle__button_2')
+        //this.popup.querySelector('.door-riddle__button_2')
     ];
 
     buttons.forEach(function(b) {
@@ -173,8 +174,11 @@ function Box(number, onUnlock) {
     // Для примера сундук откроется просто по клику на него
     var buttons = [
         this.popup.querySelector('.door-riddle__button_0'),
-        //this.popup.querySelector('.door-riddle__button_1'),
-        this.popup.querySelector('.door-riddle__button_2')
+        this.popup.querySelector('.door-riddle__button_1'),
+        this.popup.querySelector('.door-riddle__button_2'),
+        this.popup.querySelector('.door-riddle__button_3'),
+        this.popup.querySelector('.door-riddle__button_4'),
+        this.popup.querySelector('.door-riddle__button_5')
     ];
 
     buttons.forEach(function(b) {
@@ -185,24 +189,31 @@ function Box(number, onUnlock) {
     }.bind(this));
 
     function _onButtonPointerDown(e) {
-        e.target.classList.add('door-riddle__button_pressed');
-        checkCondition.apply(this);
+        var angleOfRotation = parseInt(e.target.style.transform.slice(7));
+        e.target.style.transform = "rotate(" + (angleOfRotation + 90) + "deg)";
     }
 
     function _onButtonPointerUp(e) {
-        e.target.classList.remove('door-riddle__button_pressed');
+        var angleOfRotation = parseInt(e.target.style.transform.slice(7));
+        if (angleOfRotation % 360 == 0) {
+          checkCondition.apply(this);
+        }
     }
 
     /**
      * Проверяем, можно ли теперь открыть дверь
      */
     function checkCondition() {
-        var isOpened = true;
+        var isOpened = false;
+        var countOfGuessedCells = 0;
         buttons.forEach(function(b) {
-            if (!b.classList.contains('door-riddle__button_pressed')) {
-                isOpened = false;
-            }
+          if (parseInt(b.style.transform.slice(7)) % 360 == 0) {
+            countOfGuessedCells++;
+          }
         });
+        if (countOfGuessedCells == buttons.length) {
+          isOpened = true;
+        }
 
         // Если все три кнопки зажаты одновременно, то откроем эту дверь
         if (isOpened) {

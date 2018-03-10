@@ -100,7 +100,7 @@ body {
     left: 10%;
     bottom: 0;
 
-    background: url('../img/box.png') no-repeat top left;
+    background: url(../img/box.png) no-repeat top left;
     width: 32px;
     height: 32px;
 
@@ -160,15 +160,53 @@ body {
     background: #000 url(../img/door_level_3.jpg) no-repeat center;
 }
 .popup__content_level_3 {
+    display: flex;
     background-image: url(../img/door__box.png);
     background-size: contain;
 }
 
 .door-riddle {
     display: flex;
-    align-items: center;
     justify-content: space-around;
     height: 100%;
+}
+
+.door-riddle_level_0 {
+    align-items: center;
+}
+
+.door-riddle_level_1 {
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: space-around;
+}
+
+.door-riddle_level_1 .door-riddle__button {
+    margin: 0 3vw;
+}
+
+.door-riddle_level_2 {
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: space-around;
+}
+
+.door-riddle_level_2 .door-riddle__button {
+    margin: 0 3vw;
+}
+
+.door-riddle_level_2 .door-riddle__button_2 {
+    margin: 0 10vw;
+}
+
+.door-riddle_level_3 {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 300px;
+    height: 200px;
+    margin: auto;
 }
 
 .door-riddle__button {
@@ -184,4 +222,66 @@ body {
 
 .door-riddle__button_pressed {
     background-color: #F3E5D9;
+}
+
+.popup_level_1 .door-riddle__button {
+    border-color: #FFDA21;
+}
+
+.popup_level_1 .door-riddle__button_pressed {
+    background-color: #FFDA21;
+}
+
+.popup_level_2 .door-riddle__button {
+    border-color: #FFA826;
+}
+
+.popup_level_2 .door-riddle__button_pressed {
+    background-color: #FFA826;
+}
+
+.popup_level_3 .door-riddle__button {
+    width: 100px;
+    height: 100px;
+    border: none;
+    border-radius: 0;
+    
+    background-position: center;
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
+        
+    transition: transform .3s;
+}
+
+.popup_level_3 .door-riddle__button_0 {
+    border-top-left-radius: 50px;
+    background-image: url(../img/ya-1.png);
+}
+
+.popup_level_3 .door-riddle__button_1 {
+    background-image: url(../img/ya-2.png);
+}
+
+.popup_level_3 .door-riddle__button_2 {
+    border-top-right-radius: 50px;
+    background-image: url(../img/ya-3.png);
+}
+
+.popup_level_3 .door-riddle__button_3 {
+    border-bottom-left-radius: 50px;
+    background-image: url(../img/ya-4.png);
+}
+
+.popup_level_3 .door-riddle__button_4 {
+    background-image: url(../img/ya-5.png);
+}
+
+.popup_level_3 .door-riddle__button_5 {
+    border-bottom-right-radius: 50px;
+    background-image: url(../img/ya-6.png);
+}
+
+.popup_level_3 .door-riddle__button_pressed {
+    background-color: none;
 }
