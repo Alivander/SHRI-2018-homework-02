@@ -148,15 +148,15 @@ body {
 }
 
 .popup__content_level_0 {
-    /* Можно поставить какую-нибудь свою картинку двери на бек */
+    background: #000 url(../img/door_level_0.jpg) no-repeat center;
 }
 
 .popup__content_level_1 {
-    /* Можно поставить какую-нибудь свою картинку двери на бек */
+    background: #000 url(../img/door_level_2jpg) no-repeat center;
 }
 
 .popup__content_level_2 {
-    /* Можно поставить какую-нибудь свою картинку двери на бек */
+    background: #000 url(../img/door_level_3.jpg) no-repeat center;
 }
 .popup__content_level_3 {
     background-image: url(../img/door__box.png);
